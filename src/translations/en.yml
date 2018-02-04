@@ -1,0 +1,79 @@
+---
+title: "Five Most Recent Tickets"
+packages:
+  - default
+  - app_five_most_recent_app
+
+parts:
+  - translation:
+      key: "txt.apps.five_most_recent_app.app.name"
+      title: "Name for App: Five Most Recent"
+      value: "Five Most Recent"
+  - translation:
+      key: "txt.apps.five_most_recent_app.app.short_description"
+      title: "Description for App: Five Most Recent"
+      value: "Display the five most recent tickets the requester has submitted"
+  - translation:
+      key: "txt.apps.five_most_recent_app.app.long_description"
+      title: "Long Description for App: Five Most Recent"
+      value: "The Zendesk Support Five Most Recent app gives you more context around past support requests made by a customer. The app displays the five most recent tickets the customer has submitted, so you have a complete view of the recent questions or issues the customer has had.
+
+
+Your agent will see the ticket number, subject line, and status of the ticket. The ticket description will appear by hovering over the subject line.
+
+
+For any questions, please email [support@zendesk.com](mailto:support@zendesk.com).
+
+
+By enabling this app, You agree to the [Built by Zendesk Terms of Use](https://www.zendesk.com/company/built-by-zendesk-agmt/)."
+  - translation:
+      key: "txt.apps.five_most_recent_app.app.installation_instructions"
+      title: "Installation Instructions for App: Five Most Recent"
+      value: "To install the Five Most Recent app:
+
+
+1. Sign in to your Zendesk Support account, then click the Admin icon in the sidebar.
+
+2. Select Apps > Marketplace, then find the Five Most Recent app and click the tile.
+
+3. On the Five Most Recent app page, click Install app in the upper-right corner. "
+  - translation:
+      key: "txt.apps.five_most_recent_app.global.status"
+      title: "Status of the ticket, following this will be the status of the ticket, can be either open, pending, solved etc..."
+      value: "Status:"
+  - translation:
+      key: "txt.apps.five_most_recent_app.global.error.title"
+      title: "Error message"
+      value: "An error occurred"
+  - translation:
+      key: "txt.apps.five_most_recent_app.global.error.message"
+      title: "Error message"
+      value: "Please try the previous action again."
+  - translation:
+      key: "txt.apps.five_most_recent_app.global.error.data"
+      title: "Error message"
+      value: "Ticket data could not be read."
+  - translation:
+      key: "txt.apps.five_most_recent_app.new"
+      title: "New status"
+      value: "New"
+  - translation:
+      key: "txt.apps.five_most_recent_app.hold"
+      title: "On Hold status"
+      value: "On-hold"
+  - translation:
+      key: "txt.apps.five_most_recent_app.closed"
+      title: "Closed status"
+      value: "Closed"
+  - translation:
+      key: "txt.apps.five_most_recent_app.solved"
+      title: "Solved status"
+      value: "Solved"
+  - translation:
+      key: "txt.apps.five_most_recent_app.open"
+      title: "Open status"
+      value: "Open"
+  - translation:
+      key: "txt.apps.five_most_recent_app.pending"
+      title: "Pending status"
+      value: "Pending"
