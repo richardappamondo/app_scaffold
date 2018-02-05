@@ -20,9 +20,9 @@ class TicketSidebar {
     })
 
     this.getTicketRequesterId().then( (requesterId) => {
-      this.client.request(`/api/v2/users/${requesterId}/tickets/requested.json?sort_by=created_at&sort_order=asc`).then( (ticketsData) => {
+      this.client.request(`/api/v2/users/${requesterId}/tickets/requested.json?sort_by=created_at&sort_order=asc&per_page=5`).then( (ticketsData) => {
 
-        console.log("tickets: ",this.filterResults(ticketsData['tickets']))
+        console.log("tickets: ",ticketsData['tickets'])
       })
     })
   }
@@ -35,10 +35,6 @@ class TicketSidebar {
     return this.client.get('ticket.requester').then( (response) => {
       return response['ticket.requester'].id
     })
-  }
-
-  filterResults(tickets) {
-    return tickets.slice(0, 5)
   }
 
   // function handleUserResults(data) {
