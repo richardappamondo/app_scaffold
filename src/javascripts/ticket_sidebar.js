@@ -1,8 +1,5 @@
-import View from 'view'
-// import Storage from 'storage'
-
-// import $ from 'jquery';
-// import _ from 'underscore';
+import $ from 'jquery';
+import I18n from 'i18n';
 
 class TicketSidebar {
 
@@ -11,10 +8,6 @@ class TicketSidebar {
     this._metadata = data.metadata
     this._context = data.context
 
-    this.view = new View({ afterRender: () => {
-      console.log('view loaded')
-    }});
-
     this.getCurrentUser().then((user) => {
       console.log("user: ", user)
     })
@@ -22,7 +15,7 @@ class TicketSidebar {
     this.getTicketRequesterId().then( (requesterId) => {
       this.client.request(`/api/v2/users/${requesterId}/tickets/requested.json?sort_by=created_at&sort_order=asc&per_page=5`).then( (ticketsData) => {
 
-        console.log("tickets: ",ticketsData['tickets'])
+        this.displayTickets(ticketsData['tickets'])
       })
     })
   }
@@ -37,13 +30,32 @@ class TicketSidebar {
     })
   }
 
-  // function handleUserResults(data) {
-  //   $('#main').render('lastfive',{
-  //     lastestFiveArr: lastestFive
-  //   });
-  //   // change app size
-  //   client.invoke('resize', { width: '100%', height: '170px'});
-  // }
+  displayTickets(tickets) {
+    console.log("tickets: ",tickets)
+    let ticketsForDisplay = ''
+
+    tickets.forEach( (ticket) => {
+      ticketsForDisplay = ticketsForDisplay.concat(
+        `<tr class="_tooltip" data-title="${ticket.description}">
+          <td><a href="#/tickets/${ticket.id}"><b>#${ticket.id}</b> ${ticket.subject}</a></td>
+
+          <td class='status-cell'>
+            <b class="status">
+              ${I18n.t('global.status')}
+            </b>
+
+            ${I18n.t(ticket.status)}
+          </td>
+        </tr>
+        `
+      )
+    })
+
+    $('[data-main]').html(`
+      <table class="table table-condensed">
+        <tbody>${ticketsForDisplay}</tbody>
+      </table>`)
+  }
 }
 
 export default TicketSidebar
