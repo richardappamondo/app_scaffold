@@ -50,6 +50,8 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
-    "underscore": "^1.8.3"
+    "js-yaml": "^3.10.0",
+    "underscore": "^1.8.3",
+    "yaml-loader": "^0.5.0"
   }
 }

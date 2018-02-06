@@ -47,6 +47,10 @@ module.exports = {
         loader: extractStyles.extract("style", ["css?sourceMap&root=" + path.resolve('./dist/assets'), "sass?sourceMap"])
       },
       {
+        test: /\.(yml|yaml)/,
+        loaders: ['json', 'yaml']
+      },
+      {
         test: /\.json$/,
         exclude: path.resolve(__dirname, './src/translations'),
         loader: 'json-loader'
