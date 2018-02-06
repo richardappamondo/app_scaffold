@@ -8,20 +8,12 @@ class TicketSidebar {
     this._metadata = data.metadata
     this._context = data.context
 
-    this.getCurrentUser().then((user) => {
-      console.log("user: ", user)
-    })
-
     this.getTicketRequesterId().then( (requesterId) => {
       this.client.request(`/api/v2/users/${requesterId}/tickets/requested.json?sort_by=created_at&sort_order=asc&per_page=5`).then( (ticketsData) => {
 
         this.displayTickets(ticketsData['tickets'])
       })
     })
-  }
-
-  getCurrentUser() {
-    return this.client.request({ url: '/api/v2/users/me.json' })
   }
 
   getTicketRequesterId() {
@@ -31,7 +23,6 @@ class TicketSidebar {
   }
 
   displayTickets(tickets) {
-    console.log("tickets: ",tickets)
     let ticketsForDisplay = ''
 
     tickets.forEach( (ticket) => {
